@@ -8,6 +8,7 @@ import SettingPage from './pages/SettingPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import { useAuthStore } from './store/useAuthStore.js';
 import { Loader } from 'lucide-react';
+import {Toaster} from 'react-hot-toast';
 
 
 const App = () => {
@@ -40,6 +41,8 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage />} />
 
       </Routes>
+
+      <Toaster/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ function SignUpPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [formaData, setFormData] = useState(
         {
-            fullname: "",
+            fullName: "",
             email: "",
             password: "",
         }
@@ -18,9 +18,23 @@ function SignUpPage() {
 
     const { signup, isSigningUp } = useAuthStore();
 
-    const validateForm = () => { }
+    const validateForm = () => {
+        if (!formaData.fullName.trim()) return toast.error("Full name is required");
+        if (!formaData.email.trim()) return toast.error("Email is required");
+        if (!/\S+@\S+\.\S+/.test(formaData.email)) return toast.error("Invalid email format");
+        if (!formaData.password) return toast.error("Password is required");
+        if (formaData.password.length < 6) return toast.error("Password must be at least 6 characters");
+
+        return true;
+     }
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const success = validateForm();
+
+        if(success === true){
+            signup(formaData);
+        }
 
     }
 
@@ -55,8 +69,8 @@ function SignUpPage() {
                                     type="text"
                                     className={`input input-bordered w-full pl-10`}
                                     placeholder="John Doe"
-                                    value={formaData.fullname}
-                                    onChange={(e) => setFormData({ ...formaData, fullname: e.target.value })}
+                                    value={formaData.fullName}
+                                    onChange={(e) => setFormData({ ...formaData, fullName: e.target.value })}
                                 />
                             </div>
                         </div>
