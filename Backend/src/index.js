@@ -10,7 +10,7 @@ import { connectDB } from "./lib/db.js";
 import cors from "cors";
 import { server,app,io } from "./lib/socket.js";
 
-const path = require("path");
+import path from "path";
 
 
 dotenv.config();
