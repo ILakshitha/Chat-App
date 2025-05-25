@@ -13,8 +13,10 @@ import { useThemeStore } from './store/useThemeStore.js';
 
 
 const App = () => {
-  const { user, checkAuth, isCheckingAuth } = useAuthStore();
+  const { user, checkAuth, isCheckingAuth,onlineUsers } = useAuthStore();
   const {theme} = useThemeStore();
+
+  console.log("Online Users:", onlineUsers);
 
   useEffect(() => {
     checkAuth();
