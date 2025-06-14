@@ -3,7 +3,7 @@ import { axiosInstance } from "../lib/axios.js";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const BASE_URL = "http://localhost:5001"; // Adjust this to your server URL
+const BASE_URL = "http://44.211.44.223:5001"; // Adjust this to your server URL
 
 export const useAuthStore = create((set, get) => ({
     user: null,
